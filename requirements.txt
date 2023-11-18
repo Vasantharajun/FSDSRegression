@@ -1,0 +1,5 @@
+numpy
+Flask
+pandas
+seaborn
+-e .  # this command is useful to trigger setup.py i.e., to create package
