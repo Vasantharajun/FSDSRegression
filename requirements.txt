@@ -2,4 +2,5 @@ numpy
 Flask
 pandas
 seaborn
+scikit-learn
 -e .  # this command is useful to trigger setup.py i.e., to create package
