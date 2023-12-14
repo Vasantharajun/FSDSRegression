@@ -8,7 +8,7 @@ from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error
 from src.exception import CustomException
 from src.logger import logging
 
-## to convert object to pickle file
+## to convert object to pickle file (serialization)
 def save_object(file_path, obj):
     try:
         dir_path = os.path.dirname(file_path)
@@ -20,6 +20,15 @@ def save_object(file_path, obj):
 
     except Exception as e:
         raise CustomException(e, sys)
+    
+## to convert pickle file to object or to load pickle file (deserialization)
+def load_object(file_path):
+    try:
+        with open(file_path,'rb') as file_obj:
+            return pickle.load(file_obj)
+    except Exception as e:
+        logging.info("Exception occured in load object function utils")
+        raise CustomException(e,sys)
     
 ## General fundtion to evaluate model
 def evaluate_model(X_train, y_train, X_test, y_test, models):
